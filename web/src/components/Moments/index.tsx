@@ -7,7 +7,6 @@ export function Moments() {
   const handleChangeMoment = (e: FormEvent<HTMLInputElement>) => {
     const { value: inputValue } = e.target as HTMLInputElement
     setSelected(inputValue)
-    console.log(inputValue)
   }
 
   return (
