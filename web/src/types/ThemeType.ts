@@ -2,7 +2,7 @@ export interface ThemeType {
   name: string
 }
 
-export enum ThemeOptions {
+export enum ThemeOptionsType {
   'LOVE' = 'Amor de Deus',
   FAITH_AND_CONVERSION = 'Fé e conversão',
   SIN_AND_SALVATION = 'Pecado e salvação',

@@ -1,5 +1,5 @@
 import { THEME_OPTIONS } from '@/data/themeOptions'
-import { ThemeOptions } from '@/types/ThemeType'
+import { ThemeOptionsType } from '@/types/ThemeType'
 import {
   CircleNotch,
   Dress,
@@ -14,9 +14,9 @@ import {
 import React, { useEffect, useState } from 'react'
 interface OptionProps {
   title: string
-  theme: ThemeOptions
+  theme: ThemeOptionsType
   currentTheme: string
-  onAlterSelectedTheme: (theme: ThemeOptions) => void
+  onAlterSelectedTheme: (theme: ThemeOptionsType) => void
 }
 
 export function Option({
