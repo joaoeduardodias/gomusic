@@ -16,13 +16,12 @@ export function Sidebar() {
   }
 
   return (
-    <aside className="flex w-64 flex-col items-start border-r border-r-slate-400 py-6">
+    <aside className="relative flex w-64 flex-col items-start border-r border-r-slate-400 py-6">
       <Image
         src={logoImage}
         alt="Logo Escrita GoMusic"
-        width={163}
-        height={50}
-        className="mx-auto"
+        priority
+        className="mx-auto h-[11.25rem] w-[11.25rem]"
       />
       <div className="mt-8 w-full justify-start pl-7">
         <h3 className="text-lg font-medium uppercase text-gray-500">Temas</h3>

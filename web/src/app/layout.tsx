@@ -12,7 +12,10 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="pt-BR">
-      <body className={`${ubuntu.className} bg-neutral-300 text-zinc-700`}>
+      <body
+        className={`${ubuntu.className} bg-neutral-300 text-zinc-700`}
+        suppressHydrationWarning={true}
+      >
         {children}
       </body>
     </html>
