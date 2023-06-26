@@ -1,3 +1,5 @@
+import { Header } from '@/components/Header'
+import { Sidebar } from '@/components/Sidebar'
 import { Ubuntu } from 'next/font/google'
 import { ReactNode } from 'react'
 import './globals.css'
@@ -13,10 +15,14 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="pt-BR">
       <body
-        className={`${ubuntu.className} bg-neutral-300 text-zinc-700`}
+        className={`${ubuntu.className} flex h-screen  bg-neutral-300 text-zinc-700 `}
         suppressHydrationWarning={true}
       >
-        {children}
+        <Sidebar />
+        <div className="flex flex-1 flex-col">
+          <Header />
+          <main className="flex flex-1 ">{children}</main>
+        </div>
       </body>
     </html>
   )
