@@ -15,7 +15,8 @@ export function Input({ label, ...props }: InputProps) {
         name={props.name}
         id={props.name}
         placeholder={props.placeholder}
-        className="w-full rounded-md border border-zinc-300 px-4 py-3 outline-blue-700"
+        className="w-full rounded-md border border-zinc-400 px-4 py-3 outline-blue-700 placeholder:text-zinc-500"
+        {...props}
       />
     </div>
   )
