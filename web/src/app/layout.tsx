@@ -15,7 +15,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="pt-BR">
       <body
-        className={`${ubuntu.className} flex h-screen  bg-neutral-300 text-zinc-700 `}
+        className={`${ubuntu.className} flex h-screen  bg-white text-zinc-700 `}
         suppressHydrationWarning={true}
       >
         <Sidebar />
