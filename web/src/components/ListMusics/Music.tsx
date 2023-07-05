@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 export function Music() {
   return (
-    <li className="flex cursor-pointer items-center justify-between bg-zinc-400/30  p-4 transition-colors first:rounded-t-lg last:rounded-b-lg hover:bg-zinc-400/50">
+    <li className="flex cursor-pointer items-center justify-between bg-gray-300/50  p-4 transition-colors first:rounded-t-lg last:rounded-b-lg hover:bg-gray-300/80">
       <div className="flex flex-1 items-center justify-start gap-2">
         <Image
           src="/album.png"
