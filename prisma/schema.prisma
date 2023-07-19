@@ -16,6 +16,31 @@ model User {
   email      String  @unique
   name       String
   avatar_url String?
+  Music      Music[]
 
   @@map("users")
+}
+
+model Music {
+  id      String  @id @default(uuid())
+  name    String
+  artist  String
+  User    User?   @relation(fields: [user_id], references: [id])
+  user_id String?
+  Theme   Theme[]
+
+  @@map("musics")
+}
+
+model Theme {
+  id   String @id @default(uuid())
+  name String @unique
+
+  Music Music[]
+
+  @@map("themes")
+}
+
+model MusicTheme {
+  id String @id @default(uuid())
 }
