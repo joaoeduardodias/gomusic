@@ -12,11 +12,13 @@ datasource db {
 }
 
 model User {
-  id         String  @id @default(uuid())
-  email      String  @unique
+  id         String   @id @default(uuid())
+  email      String   @unique
   name       String
   avatar_url String?
   Music      Music[]
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
 
   @@map("users")
 }
@@ -25,22 +27,37 @@ model Music {
   id      String  @id @default(uuid())
   name    String
   artist  String
-  User    User?   @relation(fields: [user_id], references: [id])
   user_id String?
-  Theme   Theme[]
+
+  themes MusicTheme[]
+  User   User?        @relation(fields: [user_id], references: [id])
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
 
   @@map("musics")
 }
 
 model Theme {
-  id   String @id @default(uuid())
-  name String @unique
+  id     String       @id @default(uuid())
+  name   String       @unique
+  musics MusicTheme[]
 
-  Music Music[]
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
 
   @@map("themes")
 }
 
 model MusicTheme {
-  id String @id @default(uuid())
+  id       String  @id @default(uuid())
+  music_id String?
+  theme_id String?
+  Music    Music?  @relation(fields: [music_id], references: [id])
+  Theme    Theme?  @relation(fields: [theme_id], references: [id])
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@map("musics_themes")
 }
