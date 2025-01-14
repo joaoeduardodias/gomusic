@@ -12,8 +12,8 @@ model Song {
   title     String
   artist    String
   createdAt DateTime @default(now())
-  theme     Theme?   @relation(fields: [theme_id], references: [id])
-  theme_id  String?
+  theme     Theme    @relation(fields: [theme_id], references: [id])
+  theme_id  String
 
   @@map("songs")
 }

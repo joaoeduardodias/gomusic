@@ -11,13 +11,16 @@ export async function ListThemes() {
 
   return (
     <div
-      className="mb-6 flex overflow-x-auto space-x-2 px-4"
+      className="my-4 flex overflow-x-auto space-x-2 px-4"
       style={{ scrollBehavior: "smooth" }}
     >
       {themes && themes.length > 0 ? (
-        themes.map((theme) => (
-          <ThemeItem id={theme.id} name={theme.name} key={theme.id} />
-        ))
+        <>
+          <ThemeItem id={"asd"} name="Todos" />
+          {themes.map((theme) => (
+            <ThemeItem id={theme.id} name={theme.name} key={theme.id} />
+          ))}
+        </>
       ) : (
         <span className="text-sm text-muted-foreground text-center w-full">
           Nenhum tema encontrado
