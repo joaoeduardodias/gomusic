@@ -1,10 +1,9 @@
-"use client";
 import { ListThemes } from "@/components/list-themes";
 import { Song } from "@/components/song";
 import { ThemeToogle } from "@/components/toogle-theme";
 import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
-import { useState } from "react";
+import { Suspense } from "react";
 
 const songs = [
   { id: "1", title: "Calm Waters", artist: "Ocean Sounds", theme: "Relaxing" },
@@ -38,18 +37,19 @@ const songs = [
 ];
 
 export default function Home() {
-  const [searchTerm, setSearchTerm] = useState("");
+  // const [searchTerm, setSearchTerm] = useState("");
 
-  const filteredSongs = songs.filter((song) => {
-    const matchesSearch =
-      song.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      song.artist.toLowerCase().includes(searchTerm.toLowerCase());
-    // const matchesTheme = !selectedTheme || song.theme === selectedTheme;
-    return matchesSearch;
-    // return matchesSearch && matchesTheme;
-  });
+  // const filteredSongs = songs.filter((song) => {
+  //   const matchesSearch =
+  //     song.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+  //     song.artist.toLowerCase().includes(searchTerm.toLowerCase());
+  //   // const matchesTheme = !selectedTheme || song.theme === selectedTheme;
+  //   return matchesSearch;
+  //   // return matchesSearch && matchesTheme;
+  // });
 
   return (
+    //  <ErrorBoundary >
     <div>
       <header className="border-b py-4 shadow-sm">
         <div className="mx-auto container px-2 flex items-center justify-between">
@@ -61,8 +61,8 @@ export default function Home() {
           <Input
             type="text"
             placeholder="Search songs or artists"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
+            // value={searchTerm}
+            // onChange={(e) => setSearchTerm(e.target.value)}
             className="pl-10 pr-4 py-2 w-full"
           />
           <Search
@@ -70,11 +70,13 @@ export default function Home() {
             size={20}
           />
         </div>
-        <ListThemes />
+        <Suspense fallback={<div>Carregando temas...</div>}>
+          <ListThemes />
+        </Suspense>
         {/* list songs */}
 
         <div className="space-y-4 mb-4 px-4">
-          {filteredSongs.map((song) => (
+          {songs.map((song) => (
             <Song
               artist={song.artist}
               id={song.id}
@@ -85,12 +87,13 @@ export default function Home() {
           ))}
         </div>
 
-        {filteredSongs.length === 0 && (
+        {/* {filteredSongs.length === 0 && (
           <p className="text-center text-gray-500 dark:text-gray-400 mt-4">
             No songs found
           </p>
-        )}
+        )} */}
       </main>
     </div>
+    //  </ErrorBoundary>
   );
 }
