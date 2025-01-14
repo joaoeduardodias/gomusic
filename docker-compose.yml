@@ -1,0 +1,10 @@
+services:
+  db:
+    image: postgres:17
+    container_name: postgres_db_gomusic
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: gomusic
+    ports:
+      - "5432:5432"

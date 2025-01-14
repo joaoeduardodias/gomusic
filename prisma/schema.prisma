@@ -1,0 +1,28 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Song {
+  id        String   @id @default(uuid())
+  title     String
+  artist    String
+  createdAt DateTime @default(now())
+  theme     Theme?   @relation(fields: [theme_id], references: [id])
+  theme_id  String?
+
+  @@map("songs")
+}
+
+model Theme {
+  id        String   @id @default(uuid())
+  name      String
+  createdAt DateTime @default(now())
+  song      Song[]
+
+  @@map("themes")
+}
