@@ -23,10 +23,6 @@ export function ListSongs() {
     fetch();
   }, [setSongs]);
 
-  // const filteredSongs =
-  //   themeMusic === "Todos" || !themeMusic
-  //     ? songs
-  //     : songs.filter((song) => song.theme === themeMusic);
   if (error) return <p>Erro encontrado, por favor tente novamente</p>;
 
   return (
