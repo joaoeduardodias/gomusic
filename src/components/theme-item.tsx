@@ -15,7 +15,7 @@ export function ThemeItem({ id, name }: ThemeItemProps) {
       key={id}
       onClick={() => onThemeMusic(name)}
       variant={themeMusic === name ? "default" : "outline"}
-      className="text-sm whitespace-nowrap flex-shrink-0 select-none"
+      className="text-sm whitespace-nowrap flex-shrink-0 select-none mb-1"
     >
       {name}
     </Button>
